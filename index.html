@@ -1,0 +1,1192 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <meta content="width=device-width, initial-scale=1" name="viewport" />
+    <title>Congreso Dental Chihuahuense (CODEC)</title>
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <script src="https://js.stripe.com/v3/"></script>
+    <script src="https://cdn.emailjs.com/dist/email.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/pdf-lib/dist/pdf-lib.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/qrcode@1.4.4/build/qrcode.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/intl-tel-input/17.0.8/css/intlTelInput.css" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/intl-tel-input/17.0.8/js/intlTelInput.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/intl-tel-input/17.0.8/js/utils.js"></script>
+    <link rel="stylesheet" href="./styles/styles2.css">
+    <style>
+        @media (min-width: 992px) {
+            html.w-mod-js:not(.w-mod-ix) [data-w-id="7790c7f5-e606-0e16-7ece-290f34840e59"] {
+                opacity: 0;
+            }
+        }
+    </style>
+
+    <script type="text/javascript">
+        !function (o, c) {
+            var n = c.documentElement
+                , t = " w-mod-";
+            n.className += t + "js",
+                ("ontouchstart" in o || o.DocumentTouch && c instanceof DocumentTouch) && (n.className += t + "touch")
+        }(window, document);
+    </script>
+
+    <!-- Please keep this css code to improve the font quality-->
+    <style>
+        * {
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+        }
+    </style>
+
+    <style>
+        .radio {
+            display: block;
+            cursor: pointer;
+            user-select: none;
+            text-align: left;
+
+            &+.radio {
+                margin-top: 12px;
+            }
+
+            input {
+                display: none;
+
+                &+span {
+                    display: inline-block;
+                    position: relative;
+                    padding-left: 30px;
+                    content: '';
+
+                    &:before {
+                        display: block;
+                        position: absolute;
+                        top: 0px;
+                        left: 0px;
+                        border-radius: 50%;
+                        margin-right: 5px;
+                        width: 16px;
+                        height: 16px;
+                        border: 1px solid #ccc;
+                        background: #fff;
+                    }
+
+                    &:after {
+                        content: '';
+                        display: block;
+                        width: 10px;
+                        height: 10px;
+                        background: #222;
+                        position: absolute;
+                        border-radius: 50%;
+                        top: 3px;
+                        left: 3px;
+                        opacity: 0;
+                        transform: scale(0, 0);
+                        transition: all .2s cubic-bezier(0.64, 0.57, 0.67, 1.53);
+                    }
+                }
+
+                &:checked+span:after {
+                    opacity: 1;
+                    transform: scale(1, 1);
+                }
+            }
+        }
+
+        /* END CHECKBOX STYLE */
+
+
+        |
+    </style>
+</head>
+
+<body>
+    <div class="page-wrapper">
+
+
+        <header class="header navbar navbar-expand-lg navbar-light bg-light">
+            <div class="container-fluid ps-5 pe-2">
+                <div class="logo d-flex justify-content-center justify-content-md-start">
+                    <a href="#" aria-current="page" class="navbar-logo-link w-nav-brand w--current">
+                        <img src="" loading="lazy" alt="Logo" class="navbar-logo" />
+                    </a>
+                </div>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+                    aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarNav">
+                    <div class="navegacion d-flex mt-5 mt-md-0 ms-auto justify-content-center">
+                        <nav id="nav-up" class="nav-footer navbar-nav">
+                            <a href="#conferencistas"
+                                class="navbar-link w-nav-link nav-item nav-link fs-5">Conferencistas</a>
+                            <a href="#agenda" class="navbar-link w-nav-link nav-item nav-link fs-5">Itinerario</a>
+                            <a href="#location" class="navbar-link w-nav-link nav-item nav-link fs-5">Información</a>
+                            <a href="#faq" class="navbar-link w-nav-link nav-item nav-link fs-5">FAQs</a>
+                        </nav>
+                    </div>
+                    <div class="registro botonHeader d-flex justify-content-center align-items-center ms-auto">
+                        <a href="#tickets" class="button w-button btn-abrir-popup">Comprar Entrada</a>
+                    </div>
+                </div>
+            </div>
+        </header>
+
+        <script>
+            document.addEventListener('DOMContentLoaded', function () {
+                var navbarCollapse = document.getElementById('navbarNav');
+                var body = document.body;
+                let formularioCont = document.querySelector('.overlay')
+
+                navbarCollapse.addEventListener('hidden.bs.collapse', function () {
+                    body.style.paddingTop = '80px'; // Ajusta este valor al alto de tu header
+                    formularioCont.style.paddingTop = "70px";
+                });
+
+                navbarCollapse.addEventListener('shown.bs.collapse', function () {
+                    body.style.paddingTop = '310px'; // 80px (header) + 476px (expanded menu)
+                    formularioCont.style.paddingTop = "80px";
+                });
+            });
+        </script>
+
+
+
+
+        <main class="main-wrapper">
+            <header class="section-home-header">
+                <div class="padding-global">
+                    <div class="container-large">
+                        <div>
+                            <div data-w-id="ef0eeb61-4441-00c1-68d2-849b4bae3bc4" class="home-header-component">
+                                <div class="margin-bottom margin-xhuge w-100">
+                                    <div class="text-align-center w-100">
+                                        <div class="">
+                                            <div class="margin-bottom margin-xsmall header-titulo-mov">
+                                                <div class="subheading">Congreso Dental Chihuahuense </div>
+                                            </div>
+                                            <div class="margin-bottom margin-small my-5">
+                                                <h1 class="codec-titulo">CODEC</h1>
+                                            </div>
+                                            <div class="header-infos-wrapper justify-content-md-between mt-5">
+                                                <div class="header-infos-item">
+                                                    <div>3 y 4 de Octubre 2024</div>
+                                                </div>
+                                                <div class="header-infos-item">
+                                                    <div class="text-uppercase">CENTRO DE EXPOSICIONES
+                                                        Y CONVENCIONES</div>
+                                                </div>
+                                                <div class="header-infos-item  no-border">
+                                                    <div>Chihuahua, México</div>
+                                                </div>
+
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="header-content-wrapper">
+                                <div id="w-node-d31840de-0054-6868-b476-f3eb4680ebaf-3863c98b"
+                                    data-w-id="d31840de-0054-6868-b476-f3eb4680ebaf" class="header-highlights-wrapper">
+                                    <h2 class="heading-style-h3">Descubre cómo la odontología no solo transforma
+                                        sonrisas.</h2>
+                                    <div class="margin-top margin-small">
+                                        <p class="text-size-medium">En este evento único, exploraremos las últimas
+                                            tendencias, avances tecnológicos y enfoques innovadores en el cuidado
+                                            dental. Desde conferencias inspiradoras hasta demostraciones prácticas, te
+                                            sumergirás en un ambiente donde la sonrisa es la protagonista.</p>
+                                    </div>
+                                    <div class="margin-top margin-medium">
+                                        <div class="highlights-item-list">
+                                            <div id="w-node-d82c716a-a54d-1950-7a06-e729d2461735-3863c98b"
+                                                class="highlights-item">
+                                                <img src="https://assets.website-files.com/64463f5f0937fac90063c9a3/644805aee2568633cd4a077a_check-circle-duotone.svg"
+                                                    loading="lazy" alt="Check Icon" class="icon-1x1-small" />
+                                                <div class="highlight-content">
+                                                    <p class="text-size-medium text-uppercase">Conferencias exclusivas
+                                                    </p>
+                                                </div>
+                                            </div>
+                                            <div id="w-node-ef5b19e6-4ab8-47ea-ff07-1d50496e6d2d-3863c98b"
+                                                class="highlights-item">
+                                                <img src="https://assets.website-files.com/64463f5f0937fac90063c9a3/644805aee2568633cd4a077a_check-circle-duotone.svg"
+                                                    loading="lazy" alt="Check Icon" class="icon-1x1-small" />
+                                                <div class="highlight-content">
+                                                    <p class="text-size-medium text-uppercase">Aperitivos</p>
+                                                </div>
+                                            </div>
+                                            <div id="w-node-_065f8c8e-1d97-0abf-4335-7ba6a507108b-3863c98b"
+                                                class="highlights-item">
+                                                <img src="https://assets.website-files.com/64463f5f0937fac90063c9a3/644805aee2568633cd4a077a_check-circle-duotone.svg"
+                                                    loading="lazy" alt="Check Icon" class="icon-1x1-small" />
+                                                <div class="highlight-content">
+                                                    <p class="text-size-medium text-uppercase">Fiesta Rompe Hielo</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="d-grid align-items-center justify-content-center">
+
+                                    <img class="img-fluid" src="assets/imagen-conferencia.jpg" alt="img evento">
+
+                                </div>
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="blurred-circle"></div>
+            </header>
+
+            <div class="contenedor">
+                <div class="overlay" id="overlay">
+                    <div class="popup mx-2" id="popup">
+                        <a href="#" id="btn-cerrar-popup" class="btn-cerrar-popup"><i class="fas fa-times"></i></a>
+                        <h3>Registro de Usuario</h3>
+                        <div class="row justify-content-center">
+                            <form id="registroForm" class="col-md-8">
+                                <div class="contenedor-inputs">
+                                    <div>
+                                        <label for="nombre" class="form-label fw-bold text-align-start fs-6">Nombre ( *
+                                            ):</label>
+                                        <input type="text" class="form-control" name="nombre" id="nombre"
+                                            placeholder="Ej: Pedro" required>
+                                    </div>
+                                    <div>
+                                        <label for="apellido" class="form-label fw-bold text-align-start fs-6">Apellido
+                                            ( * ):</label>
+                                        <input type="text" class="form-control" name="apellido" id="apellido"
+                                            placeholder="Ej: Lopez" required>
+                                    </div>
+                                    <div>
+                                        <label for="email" class="form-label fw-bold text-align-start fs-6">Email ( *
+                                            ):</label>
+                                        <input required minlength="4" type="email" class="form-control" name="email"
+                                            id="email" placeholder="Ej: email@domain.com">
+                                    </div>
+                                    <div>
+                                        <label for="telefono" class="form-label fw-bold text-align-start fs-6">Teléfono
+                                            (
+                                            *
+                                            ):</label>
+                                        <input required type="tel" id="phone" class="form-control" name="telefono"
+                                            placeholder="Ej: +52 (123) 456-7890">
+                                    </div>
+                                    <div>
+                                        <p class="form-label fs-6 mt-2 text-align-start">¿Confirma su asistencia al
+                                            evento rompehielos dentro del itinerario? Es muy importante saber si
+                                            asistirá, ya que de no confirmar se le negará el acceso durante esa sección
+                                            del evento. Si no sabe en qué consiste, puede consultar el <a class=""
+                                                href="#agenda">Itinierario.</a></p>
+                                        <label class="radio mt-2">
+                                            <input name="asistencia_rompehielos" type="radio" value="si">
+                                            <span class="fs-6">Si</span>
+                                        </label>
+                                        <label class="radio">
+                                            <input name="asistencia_rompehielos" type="radio" value="no">
+                                            <span class="fs-6">No</span>
+                                        </label>
+                                        <div id="asistencia-error"></div>
+                                    </div>
+                                </div>
+                                <div class="row justify-content-center mt-4">
+                                    <div class="col-md-8">
+                                        <button id="submit" type="submit" disabled>
+                                            <div class="spinner hidden" id="spinner"></div>
+                                            <span id="button-text">Pagar</span>
+                                        </button>
+                                        <div id="payment-message" class="hidden"></div>
+                                    </div>
+                                </div>
+                                <script>
+                                    document.addEventListener("DOMContentLoaded", function () {
+                                        const input = document.querySelector("#phone");
+                                        window.intlTelInput(input, {
+                                            initialCountry: "mx",
+                                            strictMode: true,
+                                            utilsScript: "https://cdnjs.cloudflare.com/ajax/libs/intl-tel-input/17.0.8/js/utils.js"
+                                        });
+                                    });
+                                </script>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Modal -->
+            <div class="modal fade" id="paymentModal" tabindex="-1" role="dialog" aria-labelledby="paymentModalLabel"
+                aria-hidden="true">
+                <div class="modal-dialog" role="document">
+                    <div class="modal-content" style="
+                    min-width: fit-content; 
+                    left: 50%; 
+                    transform: translateX(-50%); ">
+                        <div class="modal-header">
+                            <h5 class="modal-title" id="paymentModalLabel">Realizar Pago</h5>
+                            <a href="/" id="close" class="close"><i class="fas fa-times"></i></a>
+                        </div>
+                        <div class="modal-body">
+                            <form id="payment-form">
+                                <div id="payment-element">
+                                    <!-- Stripe.js injects the Payment Element -->
+                                </div>
+                                <button id="submit-payment">
+                                    <div class="spinner hidden" id="spinner"></div>
+                                    <span id="button-text">Confirmar Pago</span>
+                                </button>
+                                <div id="payment-message" class="hidden"></div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <section id="conferencistas" class="section-home-speakers p-1">
+                <div class="padding-global">
+                    <div class="container-large">
+                        <div class="">
+                            <div class="margin-bottom margin-large mt-5">
+                                <div data-w-id="7790c7f5-e606-0e16-7ece-290f34840e41" class="max-width-large">
+                                    <div class="margin-bottom margin-small">
+                                        <h2>Nuestros Conferencistas</h2>
+                                    </div>
+                                    <p class="text-size-medium">Descubre la excelencia en conocimiento y experiencia que
+                                        nuestros conferencistas tienen para ofrecer.
+                                    </p>
+                                </div>
+                            </div>
+                            <div class="speaker-collection-wrapper w-dyn-list">
+                                <div role="list" class="speaker-collection-list w-dyn-items">
+                                    <div role="listitem" class="speaker-collection-item w-dyn-item">
+                                        <div class="speaker-item">
+                                            <div class="speaker-image-wrapper">
+                                                <img src="./assets/Manuel-Lujan.jpg" loading="lazy"
+                                                    alt="Dr. Manuel Lujan" class="speaker-image img-fluid" />
+                                            </div>
+                                            <div class="speaker-content-wrapper">
+                                                <div class="heading-style-h4">Dr. Manuel Lujan</div>
+                                                <div class="text-size-medium"> Cirujano Dentista</div>
+                                                <div class="speaker-bio-content">
+                                                    <p class="text-bio">Manuel Antonio Luján Aguilar es un cirujano
+                                                        dentista especializado en prostodoncia con una maestría en
+                                                        estomatología. Graduado de la Universidad Autónoma de Chihuahua
+                                                        y la Universidad de Guadalajara, cuenta con una sólida formación
+                                                        académica y ha asistido a numerosos cursos y seminarios
+                                                        internacionales. Con más de 20 años de experiencia, combina su
+                                                        práctica privada con la docencia en la Universidad Autónoma de
+                                                        Chihuahua, donde coordina la academia de prostodoncia. Ha
+                                                        participado en diversas investigaciones y publicaciones
+                                                        científicas, destacándose en la rehabilitación protésica e
+                                                        implantología.</p>
+                                                </div>
+                                                <div class="redes-c">
+
+                                                </div>
+                                            </div>
+
+                                        </div>
+                                    </div>
+                                    <div role="listitem" class="speaker-collection-item w-dyn-item">
+                                        <div class="speaker-item">
+                                            <div class="speaker-image-wrapper">
+                                                <img src="assets/drOscar2.png" loading="lazy" alt="Dr Oscar"
+                                                    class="speaker-image img-fluid" />
+                                            </div>
+                                            <div class="speaker-content-wrapper">
+                                                <div class="heading-style-h4">Dr. Oscar Vizcarra</div>
+                                                <div class="text-size-medium">Cirujano Dentista</div>
+                                                <div class="speaker-bio-content">
+                                                    <p class="text-bio">Oscar Daniel Vizcarra González es un cirujano
+                                                        dentista de Ciudad Juárez, Chihuahua, especializado en prótesis
+                                                        bucal fija y removible. Graduado de la Universidad Autónoma de
+                                                        Ciudad Juárez, tiene experiencia en diseño de sonrisa,
+                                                        fotografía dental, y tecnología CAD CAM. Ha impartido y
+                                                        participado en conferencias y cursos, destacándose en
+                                                        rehabilitación dental y técnicas de laboratorio. Oscar ha
+                                                        recibido premios y reconocimientos por su excelencia en
+                                                        implantología y prótesis bucal, y domina varios softwares
+                                                        dentales avanzados. Mantiene una práctica privada desde 2016.
+                                                    </p>
+                                                </div>
+                                                <div class="redes-c">
+
+                                                </div>
+                                            </div>
+
+                                        </div>
+                                    </div>
+                                    <div role="listitem" class="speaker-collection-item w-dyn-item">
+                                        <div class="speaker-item">
+                                            <div class="speaker-image-wrapper">
+                                                <img src="./assets/placeholder.jpg" loading="lazy" alt="Sarah Lee"
+                                                    class="speaker-image img-fluid" />
+                                            </div>
+                                            <div class="speaker-content-wrapper">
+                                                <div class="heading-style-h4">Dr. Heber Roberto León Salazar</div>
+                                                <div class="text-size-medium">Titulo</div>
+                                                <div class="speaker-bio-content">
+                                                    <p class="text-bio">Dr. Néstor Schejtman Plotnik es un
+                                                        cirujano dentista especializado en prostodoncia, graduado de la
+                                                        UNAM
+                                                        en 1995 y con especialidad en el Centro Dental Eastman de la
+                                                        Universidad de Rochester. Desde 2002, mantiene una
+                                                        práctica privada en prostodoncia y es miembro activo de la
+                                                        Asociación Dental Mexicana, el American Prosthodontist Society
+                                                        (Vicepresidente), y el International College of Dentist.
+                                                        Ha sido presidente del Consejo Mexicano de Rehabilitación Oral y
+                                                        Maxilofacial a.c. y participa en la Asociación Unidos por la
+                                                        Prostodoncia. Además, es profesor de posgrado en la UNAM y
+                                                        conferencista a nivel nacional e internacional.</p>
+                                                </div>
+                                                <div class="redes-c">
+
+                                                </div>
+                                            </div>
+
+                                        </div>
+                                    </div>
+                                    <div role="listitem" class="speaker-collection-item w-dyn-item">
+                                        <div class="speaker-item">
+                                            <div class="speaker-image-wrapper">
+                                                <img src="./assets/placeholder.jpg" loading="lazy"
+                                                    alt="Dr. Floriberto Calixto Arellanos"
+                                                    class="speaker-image img-fluid" />
+                                            </div>
+                                            <div class="speaker-content-wrapper">
+                                                <div class="heading-style-h4">Dr. Floriberto Calixto Arellanos</div>
+                                                <div class="text-size-medium">Titulo</div>
+                                                <div class="speaker-bio-content">
+                                                    <p class="text-bio">Dr. Néstor Schejtman Plotnik es un
+                                                        cirujano dentista especializado en prostodoncia, graduado de la
+                                                        UNAM
+                                                        en 1995 y con especialidad en el Centro Dental Eastman de la
+                                                        Universidad de Rochester. Desde 2002, mantiene una
+                                                        práctica privada en prostodoncia y es miembro activo de la
+                                                        Asociación Dental Mexicana, el American Prosthodontist Society
+                                                        (Vicepresidente), y el International College of Dentist.
+                                                        Ha sido presidente del Consejo Mexicano de Rehabilitación Oral y
+                                                        Maxilofacial a.c. y participa en la Asociación Unidos por la
+                                                        Prostodoncia. Además, es profesor de posgrado en la UNAM y
+                                                        conferencista a nivel nacional e internacional.</p>
+                                                </div>
+                                                <div class="redes-c">
+
+                                                </div>
+                                            </div>
+
+                                        </div>
+                                    </div>
+                                    <div role="listitem" class="speaker-collection-item w-dyn-item">
+                                        <div class="speaker-item">
+                                            <div class="speaker-image-wrapper">
+                                                <img src="./assets/placeholder.jpg" loading="lazy"
+                                                    alt="Dr. Fermin Ocañas" class="speaker-image img-fluid" />
+                                            </div>
+                                            <div class="speaker-content-wrapper">
+                                                <div class="heading-style-h4">Dr. Fermin Ocañas</div>
+                                                <div class="text-size-medium">Titulo</div>
+                                                <div class="speaker-bio-content">
+                                                    <p class="text-bio">Lorem ipsum, dolor sit amet consectetur
+                                                        adipisicing elit. Consequuntur ut quibusdam minima, quae aliquam
+                                                        explicabo aspernatur, ducimus ullam repellendus incidunt unde
+                                                        numquam fuga vero farnatur, ducimus ullam repellendus incidunt
+                                                        unde
+                                                        numquam fuga vero fcilis. Perferendis earum ipsa debitis
+                                                        eveniet?</p>
+                                                </div>
+                                                <div class="redes-c">
+
+                                                </div>
+                                            </div>
+
+                                        </div>
+                                    </div>
+                                    <div role="listitem" class="speaker-collection-item w-dyn-item">
+                                        <div class="speaker-item">
+                                            <div class="speaker-image-wrapper">
+                                                <img src="assets/Dr-Néstor .jpg" loading="lazy" alt="John Smith"
+                                                    class="speaker-image img-fluid" />
+                                            </div>
+                                            <div class="speaker-content-wrapper">
+                                                <div class="heading-style-h4">Dr. Néstor Schejtman Plotnik</div>
+                                                <div class="text-size-medium">Cirjuano Dentista</div>
+                                                <div class="speaker-bio-content">
+                                                    <p class="text-bio">Dr. Néstor Schejtman Plotnik es un
+                                                        cirujano dentista especializado en prostodoncia, graduado de la
+                                                        UNAM
+                                                        en 1995 y con especialidad en el Centro Dental Eastman de la
+                                                        Universidad de Rochester. Desde 2002, mantiene una
+                                                        práctica privada en prostodoncia y es miembro activo de la
+                                                        Asociación Dental Mexicana, el American Prosthodontist Society
+                                                        (Vicepresidente), y el International College of Dentist.
+                                                        Ha sido presidente del Consejo Mexicano de Rehabilitación Oral y
+                                                        Maxilofacial a.c. y participa en la Asociación Unidos por la
+                                                        Prostodoncia. Además, es profesor de posgrado en la UNAM y
+                                                        conferencista a nivel nacional e internacional.</p>
+                                                </div>
+                                                <div class="redes-c">
+
+                                                </div>
+                                            </div>
+
+                                        </div>
+                                    </div>
+
+                                    <div role="listitem" class="speaker-collection-item w-dyn-item">
+                                        <div class="speaker-item">
+                                            <div class="speaker-image-wrapper">
+                                                <img src="assets/dr-leonardo.jpg" loading="lazy" alt="John Smith"
+                                                    class="speaker-image img-fluid" />
+                                            </div>
+                                            <div class="speaker-content-wrapper">
+                                                <div class="heading-style-h4">Dr. Leonardo Favio Rogel</div>
+                                                <div class="text-size-medium">Técnico Dental</div>
+                                                <div class="speaker-bio-content">
+                                                    <p class="text-bio">Leonardo Favio Rogel Rogel es un técnico dental
+                                                        con más de 23 años de experiencia, radicado en Toluca, México.
+                                                        Fundó su laboratorio dental en 2001, especializado en
+                                                        rehabilitación estética, libre de metal, fija y sobre implantes.
+                                                        Ha impartido diversos cursos sobre maquillaje dental, emax
+                                                        press, y estratificación, destacándose en el uso de productos de
+                                                        Ivoclar. Leonardo ha asistido a seminarios anuales de Ivoclar
+                                                        Vivadent desde 2004 y cuenta con un equipo de trabajo de 9
+                                                        integrantes. Es reconocido por su habilidad en distintas
+                                                        técnicas de laboratorio y fotografía clínica.</p>
+                                                </div>
+                                                <div class="redes-c">
+
+                                                </div>
+                                            </div>
+
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            <section id="agenda" class="section-home-agenda">
+                <div class="padding-global">
+                    <div class="container-large">
+                        <div class="padding-section-large">
+                            <div class="w-layout-grid agenda-component">
+                                <div class="agenda-title-wrapper">
+                                    <div class="max-width-small">
+                                        <h2>Explora Nuestro Itinierario</h2>
+                                    </div>
+                                    <div class="agenda-background">
+                                        <img src="assets/itinerario.png" loading="lazy" alt="Agenda Image"
+                                            sizes="(max-width: 479px) 92vw, (max-width: 767px) 95vw, (max-width: 991px) 92vw, (max-width: 1439px) 46vw, 624px"
+                                            class="agenda-background-image" />
+                                        <div class="agenda-background-overlay"></div>
+                                    </div>
+                                </div>
+                                <div class="agenda-list">
+                                    <h1>Día 1</h1>
+                                    <div class="agenda-item">
+                                        <div id="w-node-_93a4a87d-1a44-6bf5-82ef-dea48c791f86-3863c98b"
+                                            class="agenda-time">
+                                            <div> 9:00 - 10:00 am</div>
+                                        </div>
+                                        <div id="w-node-e34d5b91-3aba-9615-b8b6-6bf9c5b3e11a-3863c98b"
+                                            class="agenda-content">
+                                            <div class="margin-bottom margin-xsmall">
+                                                <h3>Registro</h3>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="agenda-item">
+                                        <div id="w-node-_092b5cf7-288f-355b-4821-e2dbff1fb15d-3863c98b"
+                                            class="agenda-time">
+                                            <div> 10:00 - 11:30 am</div>
+                                        </div>
+                                        <div id="w-node-_092b5cf7-288f-355b-4821-e2dbff1fb160-3863c98b"
+                                            class="agenda-content">
+                                            <div class="margin-bottom margin-xsmall">
+                                                <h3>Conferencia # 1</h3>
+                                            </div>
+                                            <p>Conferencista: Dr. Manuel Lujan </p>
+                                        </div>
+                                    </div>
+                                    <div class="agenda-item">
+                                        <div id="w-node-e43f4d9d-549f-2a50-8a36-32b01124765b-3863c98b"
+                                            class="agenda-time">
+                                            <div> 11:30 - 12:00 pm</div>
+                                        </div>
+                                        <div id="w-node-e43f4d9d-549f-2a50-8a36-32b01124765e-3863c98b"
+                                            class="agenda-content">
+                                            <div class="margin-bottom margin-xsmall">
+                                                <h3>Receso / Carteles</h3>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="agenda-item">
+                                        <div id="w-node-_7b27f06b-c19d-31f8-9771-1ff04b737f29-3863c98b"
+                                            class="agenda-time">
+                                            <div> 12:00 -13:30 pm</div>
+                                        </div>
+                                        <div id="w-node-_7b27f06b-c19d-31f8-9771-1ff04b737f2c-3863c98b"
+                                            class="agenda-content">
+                                            <h3>Remodelación de la Estética Rosa, Cirugía Plástica
+                                                Periodontal</h3>
+
+                                            <p>Conferencista: Dr. Heber Roberto León Salazar</p>
+                                        </div>
+                                    </div>
+                                    <div data-w-id="d17faf61-0b41-190f-fc7b-8c8bf949ca18" class="agenda-item">
+                                        <div id="w-node-d17faf61-0b41-190f-fc7b-8c8bf949ca19-3863c98b"
+                                            class="agenda-time">
+                                            <div> 13:30 - 15:30 pm</div>
+                                        </div>
+                                        <div id="w-node-d17faf61-0b41-190f-fc7b-8c8bf949ca1c-3863c98b"
+                                            class="agenda-content">
+                                            <div class="margin-bottom margin-xsmall">
+                                                <h3>Comida</h3>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div data-w-id="49babfcc-9d07-d8c3-63f5-1107f8f9a7eb" class="agenda-item">
+                                        <div id="w-node-_49babfcc-9d07-d8c3-63f5-1107f8f9a7ec-3863c98b"
+                                            class="agenda-time">
+                                            <div> 15:00 - 16:30 pm</div>
+                                        </div>
+                                        <div id="w-node-_49babfcc-9d07-d8c3-63f5-1107f8f9a7ef-3863c98b"
+                                            class="agenda-content">
+                                            <div class="margin-bottom margin-xsmall">
+                                                <h3>Comunicándonos Para un Mejor Resultado</h3>
+                                            </div>
+                                            <p>Conferencista: Dr. Leonardo Vogel</p>
+                                        </div>
+                                    </div>
+                                    <div data-w-id="7b699b8b-95d7-42bd-c521-b9c1d63011ab" class="agenda-item">
+                                        <div id="w-node-_7b699b8b-95d7-42bd-c521-b9c1d63011ac-3863c98b"
+                                            class="agenda-time">
+                                            <div> 16:30 - 17:00 pm</div>
+                                        </div>
+                                        <div id="w-node-_7b699b8b-95d7-42bd-c521-b9c1d63011af-3863c98b"
+                                            class="agenda-content">
+                                            <div class="margin-bottom margin-xsmall">
+                                                <h3>Rifa Colgate</h3>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div data-w-id="49babfcc-9d07-d8c3-63f5-1107f8f9a7eb" class="agenda-item">
+                                        <div id="w-node-_49babfcc-9d07-d8c3-63f5-1107f8f9a7ec-3863c98b"
+                                            class="agenda-time">
+                                            <div> 17:00 - 18:30 pm</div>
+                                        </div>
+                                        <div id="w-node-_49babfcc-9d07-d8c3-63f5-1107f8f9a7ef-3863c98b"
+                                            class="agenda-content">
+                                            <div class="margin-bottom margin-xsmall">
+                                                <h3>Restauraciones Bio-miméticas en el Segmento
+                                                    Anterior</h3>
+                                            </div>
+                                            <p>Conferencista: Dr. Floriberto Calixto Arellanos</p>
+                                        </div>
+                                    </div>
+
+                                    <div class="agenda-item">
+                                        <div id="w-node-e76cb932-36d5-1daa-65da-f00d3ca37b0a-3863c98b"
+                                            class="agenda-time">
+                                            <div> 19:30 - 23:00 pm</div>
+                                        </div>
+                                        <div id="w-node-e76cb932-36d5-1daa-65da-f00d3ca37b0d-3863c98b"
+                                            class="agenda-content">
+                                            <div class="margin-bottom margin-xsmall">
+                                                <h3>Fiesta Rompe Hielos</h3>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <h1>Día 2</h1>
+                                    <div class="agenda-item">
+                                        <div id="w-node-_93a4a87d-1a44-6bf5-82ef-dea48c791f86-3863c98b"
+                                            class="agenda-time">
+                                            <div> 10:00 - 11:30 am</div>
+                                        </div>
+                                        <div id="w-node-e34d5b91-3aba-9615-b8b6-6bf9c5b3e11a-3863c98b"
+                                            class="agenda-content">
+                                            <div class="margin-bottom margin-xsmall">
+                                                <h3>Conferencia #1</h3>
+                                            </div>
+                                            <p>Conferencista: Dr. Fermin Ocañas</p>
+                                        </div>
+                                    </div>
+                                    <div data-w-id="092b5cf7-288f-355b-4821-e2dbff1fb15c" class="agenda-item">
+                                        <div id="w-node-_092b5cf7-288f-355b-4821-e2dbff1fb15d-3863c98b"
+                                            class="agenda-time">
+                                            <div> 11:30 - 12:00 pm</div>
+                                        </div>
+                                        <div id="w-node-_092b5cf7-288f-355b-4821-e2dbff1fb160-3863c98b"
+                                            class="agenda-content">
+                                            <div class="margin-bottom margin-xsmall">
+                                                <h3>Receso</h3>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div data-w-id="e43f4d9d-549f-2a50-8a36-32b01124765a" class="agenda-item">
+                                        <div id="w-node-e43f4d9d-549f-2a50-8a36-32b01124765b-3863c98b"
+                                            class="agenda-time">
+                                            <div> 12:00 - 13:30 pm</div>
+                                        </div>
+                                        <div id="w-node-e43f4d9d-549f-2a50-8a36-32b01124765e-3863c98b"
+                                            class="agenda-content">
+                                            <div class="margin-bottom margin-xsmall">
+                                                <h3>Neuro Marketing Dental</h3>
+                                            </div>
+                                            <p>Conferencista: Dr. Cristian Reyna</p>
+                                        </div>
+                                    </div>
+                                    <div data-w-id="d17faf61-0b41-190f-fc7b-8c8bf949ca18" class="agenda-item">
+                                        <div id="w-node-d17faf61-0b41-190f-fc7b-8c8bf949ca19-3863c98b"
+                                            class="agenda-time">
+                                            <div> 13:30 - 15:00 pm</div>
+                                        </div>
+                                        <div id="w-node-d17faf61-0b41-190f-fc7b-8c8bf949ca1c-3863c98b"
+                                            class="agenda-content">
+                                            <div class="margin-bottom margin-xsmall">
+                                                <h3>Comida</h3>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div data-w-id="7b27f06b-c19d-31f8-9771-1ff04b737f28" class="agenda-item">
+                                        <div id="w-node-_7b27f06b-c19d-31f8-9771-1ff04b737f29-3863c98b"
+                                            class="agenda-time">
+                                            <div> 15:00 - 16:30 pm</div>
+                                        </div>
+                                        <div id="w-node-_7b27f06b-c19d-31f8-9771-1ff04b737f2c-3863c98b"
+                                            class="agenda-content">
+                                            <h3>Remodelación de la Estética rosa, cirugía plástica
+                                                periodontal</h3>
+                                            <p>Conferencista: Dr. Oscar Vizcarra</p>
+                                        </div>
+                                    </div>
+
+                                    <div data-w-id="7b699b8b-95d7-42bd-c521-b9c1d63011ab" class="agenda-item">
+                                        <div id="w-node-_7b699b8b-95d7-42bd-c521-b9c1d63011ac-3863c98b"
+                                            class="agenda-time">
+                                            <div> 16:30 - 17:00 pm</div>
+                                        </div>
+                                        <div id="w-node-_7b699b8b-95d7-42bd-c521-b9c1d63011af-3863c98b"
+                                            class="agenda-content">
+                                            <div class="margin-bottom margin-xsmall">
+                                                <h3>Receso / Carteles</h3>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div data-w-id="7b27f06b-c19d-31f8-9771-1ff04b737f28" class="agenda-item">
+                                        <div id="w-node-_7b27f06b-c19d-31f8-9771-1ff04b737f29-3863c98b"
+                                            class="agenda-time">
+                                            <div> 17:00 - 18:30 pm</div>
+                                        </div>
+                                        <div id="w-node-_7b27f06b-c19d-31f8-9771-1ff04b737f2c-3863c98b"
+                                            class="agenda-content">
+                                            <h3>Transición de Flujo Analógico a Flujo Digital.
+                                                Curva de Aprendizaje</h3>
+                                            <p>Conferencista: Dr. Nestor Schejtman</p>
+                                        </div>
+                                    </div>
+                                    <div data-w-id="7b699b8b-95d7-42bd-c521-b9c1d63011ab" class="agenda-item">
+                                        <div id="w-node-_7b699b8b-95d7-42bd-c521-b9c1d63011ac-3863c98b"
+                                            class="agenda-time">
+                                            <div> 18:30 pm</div>
+                                        </div>
+                                        <div id="w-node-_7b699b8b-95d7-42bd-c521-b9c1d63011af-3863c98b"
+                                            class="agenda-content">
+                                            <div class="margin-bottom margin-xsmall">
+                                                <h3 id="location">Clausura / Decisión de Jurado de Carteles</h3>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <section class="section-home-location">
+                <div class="padding-global">
+                    <div class="container-large">
+                        <div class="">
+                            <div class="w-layout-grid location-component px-2 px-md-0">
+                                <div id="w-node-b38ebd88-2d3c-574e-8f8f-d4a284f58d07-3863c98b"
+                                    data-w-id="b38ebd88-2d3c-574e-8f8f-d4a284f58d07" class="location-content-wrapper">
+                                    <div class="margin-bottom margin-small">
+                                        <h3 class="text-start">CENTRO DE EXPOSICIONES
+                                            Y CONVENCIONES</h3>
+                                    </div>
+
+                                    <div class="w-layout-grid location-list">
+                                        <div id="w-node-fe90d0db-785a-a01f-133e-64a63ec3aa87-3863c98b"
+                                            class="location-item">
+                                            <div class="location-item-icon-wrapper">
+                                                <img src="assets/ubicacion.svg" loading="lazy" alt="Sign Icon"
+                                                    class="icon-1x1-medium" />
+                                            </div>
+                                            <div class="location-item-content-wrapper">
+                                                <div class="margin-bottom margin-xsmall">
+                                                    <h4 class="heading-style-h5 fs-5">Av. Tecnológico 1900, Santo Niño
+                                                    </h4>
+                                                    <h4 class="fs-5">Chihuahua, México</h4>
+                                                </div>
+                                                <p class="text-size-medium">Para llegar al Centro de Exposiciones y
+                                                    Convenciones de Chihuahua desde el Aeropuerto Internacional General
+                                                    Roberto Fierro Villalobos, se puede tomar un coche (25 min) o un
+                                                    autobús (40-60 min). Desde el centro de Chihuahua, en coche se tarda
+                                                    15 min y en autobús 30 min. El Centro cuenta con estacionamiento y
+                                                    se recomienda revisar rutas, horarios de autobuses y considerar el
+                                                    tráfico en horas pico.</p>
+                                            </div>
+                                        </div>
+
+                                    </div>
+                                    <div
+                                        class="margin-top margin-medium d-flex justify-content-sm-center justify-content-md-start ps-md-5">
+                                        <a target="_blank"
+                                            href="https://www.google.com/maps?ll=28.654587,-106.074699&z=10&t=m&hl=es-ES&gl=US&mapclient=embed&cid=7977009855949666972"
+                                            class="button w-button">Link de Ubicación</a>
+                                    </div>
+                                </div>
+                                <div id="w-node-b38ebd88-2d3c-574e-8f8f-d4a284f58d05-3863c98b"
+                                    data-w-id="b38ebd88-2d3c-574e-8f8f-d4a284f58d05" class="location-image-wrapper">
+                                    <img class="image img-fluid" src="./assets/ubicacion.jpg" alt="Location Image"
+                                        sizes="(max-width: 479px) 92vw, (max-width: 767px) 95vw, (max-width: 991px) 92vw, (max-width: 1439px) 44vw, 600px"
+                                        data-w-id="b38ebd88-2d3c-574e-8f8f-d4a284f58d06" loading="lazy" />
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="blurred-circle is-location"></div>
+            </section>
+
+            <section class="section-home-partner">
+                <div class="padding-global">
+                    <div class="container-large">
+                        <div class="padding-section-medium">
+                            <div data-w-id="c82bcae3-9bd7-50c4-334e-bfa59cde03af" class="margin-bottom margin-large">
+                                <div class="text-align-center">
+                                    <div class="max-width-large align-center">
+                                        <h2 class="">Nuestros Organizadores:</h1>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="organizadores">
+                                <div class="organizadoresImg">
+                                    <img src="assets/logos.png" alt="logo">
+                                </div>
+
+                            </div>
+
+
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <section class="section-home-partner">
+                <div class="padding-global">
+                    <div class="container-large">
+                        <div class="padding-section-medium">
+                            <div data-w-id="c82bcae3-9bd7-50c4-334e-bfa59cde03af" class="margin-bottom margin-large">
+                                <div class="text-align-center">
+                                    <div class="max-width-large align-center">
+                                        <h3 class="">Gracias a nuestros patrocinadores quienes han hecho
+                                            esto posible:</h3>
+                                    </div>
+                                </div>
+                            </div>
+                            <div data-w-id="c82bcae3-9bd7-50c4-334e-bfa59cde03b4" class="w-layout-grid partner-list">
+                                <div id="w-node-c82bcae3-9bd7-50c4-334e-bfa59cde03b5-3863c98b" class="partner-item">
+                                    <img src="https://assets.website-files.com/64463f5f0937fac90063c9a3/64480002801964230a9078bb_loremIpsum-logo.svg"
+                                        loading="lazy" alt="Lorem Ipsum Logo" class="partner-logo" />
+                                </div>
+                                <div id="w-node-add40afc-57e3-9cc6-32d9-7cd8ce366bb8-3863c98b" class="partner-item">
+                                    <img src="https://assets.website-files.com/64463f5f0937fac90063c9a3/64480002801964230a9078bb_loremIpsum-logo.svg"
+                                        loading="lazy" alt="Lorem Ipsum Logo" class="partner-logo" />
+                                </div>
+                                <div id="w-node-f64eec6a-f324-adcf-e1d0-adce6c64ee50-3863c98b" class="partner-item">
+                                    <img src="https://assets.website-files.com/64463f5f0937fac90063c9a3/64480002801964230a9078bb_loremIpsum-logo.svg"
+                                        loading="lazy" alt="Lorem Ipsum Logo" class="partner-logo" />
+                                </div>
+                                <div id="w-node-_8d78c574-1e7e-ba41-d972-66d505baf4d2-3863c98b" class="partner-item">
+                                    <img src="https://assets.website-files.com/64463f5f0937fac90063c9a3/64480002801964230a9078bb_loremIpsum-logo.svg"
+                                        loading="lazy" alt="Lorem Ipsum Logo" class="partner-logo" />
+                                </div>
+                                <div id="w-node-_523ec151-8434-4a16-5ad0-20176ab668ef-3863c98b" class="partner-item">
+                                    <img src="https://assets.website-files.com/64463f5f0937fac90063c9a3/64480002801964230a9078bb_loremIpsum-logo.svg"
+                                        loading="lazy" alt="Lorem Ipsum Logo" class="partner-logo" />
+                                </div>
+                                <div id="w-node-_3c45b279-d9ab-1a15-0f7f-d733ea803001-3863c98b" class="partner-item">
+                                    <img src="https://assets.website-files.com/64463f5f0937fac90063c9a3/64480002801964230a9078bb_loremIpsum-logo.svg"
+                                        loading="lazy" alt="Lorem Ipsum Logo" class="partner-logo" />
+                                </div>
+                                <div id="w-node-b9ecbf80-b71e-0e2e-8df2-939eadadaefd-3863c98b" class="partner-item">
+                                    <img src="https://assets.website-files.com/64463f5f0937fac90063c9a3/64480002801964230a9078bb_loremIpsum-logo.svg"
+                                        loading="lazy" alt="Lorem Ipsum Logo" class="partner-logo" />
+                                </div>
+                                <div id="w-node-b05e3600-53bd-eeaa-87fd-191ef3eb826d-3863c98b" class="partner-item">
+                                    <img src="https://assets.website-files.com/64463f5f0937fac90063c9a3/64480002801964230a9078bb_loremIpsum-logo.svg"
+                                        loading="lazy" alt="Lorem Ipsum Logo" class="partner-logo" />
+                                </div>
+                                <div id="w-node-_51c44b97-d0e6-1cfa-dd36-733c2a96de76-3863c98b" class="partner-item">
+                                    <img src="https://assets.website-files.com/64463f5f0937fac90063c9a3/64480002801964230a9078bb_loremIpsum-logo.svg"
+                                        loading="lazy" alt="Lorem Ipsum Logo" class="partner-logo" />
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            <section id="faq" class="section-home-faq">
+                <div>
+                    <div class="container-small">
+                        <div>
+                            <div class="margin-bottom margin-large">
+                                <div class="text-align-center">
+                                    <div class="max-width-large">
+                                        <div class="margin-bottom margin-small">
+                                            <h2>FAQs</h2>
+                                        </div>
+                                        <div class="parrafo text-center">
+                                            <p class="text-size-medium">Aquí encontrarás respuestas a
+                                                las
+                                                inquietudes más
+                                                comunes sobre el evento.
+                                            </p>
+                                            <p class="text-size-medium text-center">Nuestro objetivo es brindarte
+                                                la
+                                                información que
+                                                necesitas de manera clara y rápida. </p>
+                                            <p class="text-size-medium text-center">Si no encuentras lo que buscas, no
+                                                dudes
+                                                en contactarnos para obtener asistencia personalizada.</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div role="list" class="faq-collection-list w-dyn-items mx-5">
+                                <div role="listitem" class="faq-collection-item w-dyn-item">
+                                    <div class="faq-accordion">
+                                        <div class="faq-question">
+                                            <div class="heading-style-h6">¿Qué incluye el costo de la inscripción al
+                                                Congreso CODEC?</div>
+                                            <span class="icono-faq">+</span>
+                                        </div>
+                                        <div class="faq-answer">
+                                            <div class="margin-bottom margin-small answer">
+                                                <p>El costo de la inscripción incluye acceso a todas las conferencias y
+                                                    actividades del evento, como la rifa patrocinada por Colgate, la
+                                                    fiesta rompe hielos y la clausura. También cubre los recesos y la
+                                                    comida durante ambos días del congreso.</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div role="listitem" class="faq-collection-item w-dyn-item">
+                                    <div class="faq-accordion">
+                                        <div class="faq-question">
+                                            <div class="heading-style-h6">¿Puedo obtener un descuento en la inscripción?
+                                            </div>
+                                            <span class="icono-faq">+</span>
+                                        </div>
+                                        <div class="faq-answer">
+                                            <div class="margin-bottom margin-small answer">
+                                                <p>Sí, ofrecemos descuentos para miembros de colegios e instituciones,
+                                                    quienes pagan $1500. Los estudiantes también tienen una tarifa
+                                                    especial de $1000. Asegúrate de presentar una identificación válida
+                                                    al momento del registro para aplicar el descuento correspondiente.
+                                                </p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div role="listitem" class="faq-collection-item w-dyn-item">
+                                    <div class="faq-accordion">
+                                        <div class="faq-question">
+                                            <div class="heading-style-h6">¿Cómo y dónde puedo registrarme para el
+                                                Congreso CODEC? </div>
+                                            <span class="icono-faq">+</span>
+                                        </div>
+                                        <div class="faq-answer">
+                                            <div class="margin-bottom margin-small answer">
+                                                <p>Puedes registrarte el primer día del evento de 9:00 a 10:00 am.
+                                                    Asegúrate de llegar temprano para completar tu registro y recibir
+                                                    toda la información necesaria para las actividades del congreso.</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div role="listitem" class="faq-collection-item w-dyn-item">
+                                    <div class="faq-accordion">
+                                        <div class="faq-question">
+                                            <div class="heading-style-h6"> ¿Qué sucede si no puedo asistir después de
+                                                haberme registrado?</div>
+                                            <span class="icono-faq">+</span>
+                                        </div>
+                                        <div class="faq-answer">
+                                            <div class="margin-bottom margin-small answer">
+                                                <p>Entendemos que pueden surgir imprevistos. Te pedimos que nos informes
+                                                    lo antes posible si no puedes asistir. Sin embargo, ten en cuenta
+                                                    que las políticas de reembolso pueden variar y es mejor consultar
+                                                    directamente con los organizadores del evento para conocer los
+                                                    detalles específicos.</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div role="listitem" class="faq-collection-item w-dyn-item">
+                                    <div class="faq-accordion">
+                                        <div class="faq-question">
+                                            <div class="heading-style-h6">¿Qué temas se tratarán en las conferencias?
+                                            </div>
+                                            <span class="icono-faq">+</span>
+                                        </div>
+                                        <div class="faq-answer">
+                                            <div class="margin-bottom margin-small answer">
+                                                <p>Aunque los temas específicos de cada conferencia están aún
+                                                    por confirmar, los ponentes abordarán temas relevantes y actuales en
+                                                    el campo de la odontología. Mantente atento a las actualizaciones en
+                                                    nuestra página web para obtener más detalles sobre cada
+                                                    presentación.
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div role="listitem" class="faq-collection-item w-dyn-item">
+                                    <div class="faq-accordion">
+                                        <div class="faq-question">
+                                            <div class="heading-style-h6">¿Qué debo llevar al congreso?</div>
+                                            <span class="icono-faq">+</span>
+                                        </div>
+                                        <div class="faq-answer">
+                                            <div class="margin-bottom margin-small answer">
+                                                <p>Te recomendamos llevar tu identificación, cualquier confirmación de
+                                                    registro que hayas recibido, tarjetas de presentación para
+                                                    networking, una libreta o dispositivo para tomar notas, y ropa
+                                                    cómoda. </p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+            </section>
+            <section class="section-home-cta">
+                <div class="padding-global">
+                    <div class="container-large">
+                        <div class="padding-section-large">
+                            <div class="w-layout-grid home-cta-component">
+                                <div class="home-cta-item">
+                                    <div class="max-width-large">
+                                        <div class="margin-bottom margin-small">
+                                            <h2>¡No te pierdas esta increíble oportunidad! Ven a este evento y aprovecha
+                                                al máximo.</h2>
+                                        </div>
+                                        <p class="text-size-medium">Sumérgete en una experiencia asombrosa y moderna que
+                                            cambiará tu perspectiva. Unete y se parte de nuestro evento y descubre
+                                            oportunidades increíbles que no querrás dejar pasar.</p>
+                                    </div>
+                                    <div class="margin-top margin-medium">
+                                        <a href="#tickets" class="button is-secondary w-button btn-abrir-popup">COMPRAR
+                                            ENTRADA</a>
+                                    </div>
+                                    <div class="home-cta-background-wrapper">
+                                        <div class="home-cta-overlay"></div>
+                                        <img src="assets/conferencia.jpg" loading="lazy" alt="Cta Image"
+                                            sizes="(max-width: 479px) 92vw, (max-width: 767px) 95vw, (max-width: 991px) 92vw, (max-width: 1439px) 94vw, 1280px"
+                                            class="home-cta-background-image" />
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </main>
+        <footer class="footer-component">
+            <div class="padding-global">
+                <div class="container-large">
+                    <div class="padding-section-medium">
+                        <div class="padding-bottom padding-xlarge">
+                            <div class="footer-top-wrapper">
+                                <div class="logo-footer">
+                                    <a href="/" aria-current="page" class="navbar-logo-link w-nav-brand w--current">
+                                        <img src="" loading="lazy" alt="Logo" class="navbar-logo" />
+                                    </a>
+                                </div>
+
+                                <div class="w-layout-grid footer-link-list">
+                                    <nav id="nav-up" class="nav-footer">
+                                        <a href="#conferencistas" class="navbar-link w-nav-link">Conferencistas</a>
+                                        <a href="#agenda" class="navbar-link w-nav-link">Itinerario</a>
+                                        <a href="#info" class="navbar-link w-nav-link">Información</a>
+                                        <a href="#faq" class="navbar-link w-nav-link">FAQs</a>
+
+                                    </nav>
+                                </div>
+                                <div id="w-node-_7bb6a5d1-d920-daa7-a18a-a375547d8c96-547d8c7d"
+                                    class="w-layout-grid footer-social-list">
+                                    <a href="#" class="footer-social-link w-inline-block">
+                                        <img src="./assets/facebook.png" loading="lazy" alt="Facebook Icon"
+                                            class="icon-1x1-small" />
+                                    </a>
+                                    <a href="#" class="footer-social-link w-inline-block">
+                                        <img src="./assets/instagram.png" loading="lazy" alt="Instagram Icon"
+                                            class="icon-1x1-small" />
+                                    </a>
+                                    <a href="#" class="footer-social-link w-inline-block">
+                                        <img src="./assets/linkedin.png" loading="lazy" alt="Linkedin Icon"
+                                            class="icon-1x1-small" />
+                                    </a>
+                                    <a href="#" class="footer-social-link w-inline-block">
+                                        <img src="./assets/twitter.png" loading="lazy" alt="Twitter Icon"
+                                            class="icon-1x1-small" />
+                                    </a>
+                                    <a href="#" class="footer-social-link w-inline-block">
+                                        <img src="./assets/youtube.png" loading="lazy" alt="Youtube Icon"
+                                            class="icon-1x1-small" />
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="footer-bottom-wrapper">
+                            <div id="w-node-_7bb6a5d1-d920-daa7-a18a-a375547d8ca2-547d8c7d" class="footer-credit">
+                                Powered by : </div>
+                            <div id="w-node-_7bb6a5d1-d920-daa7-a18a-a375547d8ca4-547d8c7d" class="text-size-small">
+                                VEXA
+                            </div>
+
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="blurred-circle is-footer"></div>
+        </footer>
+    </div>
+    </div>
+    <script src="scripts/checkout.js"></script>
+    <script src="scripts/app.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
+        crossorigin="anonymous"></script>
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
+</body>
+
+</html>
